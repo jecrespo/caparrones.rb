@@ -18,6 +18,8 @@ def func1
  
  
  puts "Empieza en #{Time.now}"
- func1
- func2
+ t1 = Thread.new{func1()}
+ t2 = Thread.new{func2()}
+ t1.join
+ t2.join
  puts "Termina en #{Time.now}"
