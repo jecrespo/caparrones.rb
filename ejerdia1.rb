@@ -32,3 +32,17 @@ while answer != "n"
   #Preguntamos si quiere añadir otro contacto
   answer = ask("Quieres añadir otro? (s/n)")
 end
+
+puts "-" * 30
+puts contact_list.inspect
+puts "-" * 30
+
+puts "Los datos introducidos son:"
+contact_list.each do |contact|
+  puts "Nombre: #{contact["name"]}"
+    if contact["phone_numbers"].size > 0
+      contact["phone_numbers"].each do |phone_numbers|
+      puts "telefono: #{phone_numbers}"
+    end
+  end
+end
