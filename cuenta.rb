@@ -33,9 +33,23 @@ class BankAccount
         "Nombre: #{name}, Saldo: #{sprintf("%0.2f", balance)}€"
     end
 
-  end
+    def summary
+      puts "#{name} extracto"
+      puts "-" * 30
+      
+      @transactions.each do |transactions|
+        puts "#{transactions[:description]} \t #{transactions[:amount]}"
+      end
+
+      puts "-" * 30
+      puts "Nombre: #{name}, Saldo: #{sprintf("%0.2f", balance)}€"
+      puts "-" * 30
+    end
+end
   
   bank_account = BankAccount.new("David")
   bank_account.credit("Pago Nómina", 1000)
   bank_account.debit("Burger King", 18)
-  puts bank_account#llama al metodo to_s
+  puts bank_account #llama al metodo to_s
+
+bank_account.summary
